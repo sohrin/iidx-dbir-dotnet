@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iidx-dbir-dotnet-cli", "iidx-dbir-dotnet-cli.csproj", "{49AEB371-7396-498D-B0B9-A2E4453B9C12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49AEB371-7396-498D-B0B9-A2E4453B9C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AEB371-7396-498D-B0B9-A2E4453B9C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AEB371-7396-498D-B0B9-A2E4453B9C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AEB371-7396-498D-B0B9-A2E4453B9C12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B8B6576-A3AC-4015-9F38-7DC6EE8BFB36}
+	EndGlobalSection
+EndGlobal

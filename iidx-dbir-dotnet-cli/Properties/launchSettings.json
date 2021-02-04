@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "iidx-dbir-dotnet-cli": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
