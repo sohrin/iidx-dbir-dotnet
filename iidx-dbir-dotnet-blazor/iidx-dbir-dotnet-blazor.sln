@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iidx-dbir-dotnet-blazor.Server", "Server\iidx-dbir-dotnet-blazor.Server.csproj", "{99DF868B-844D-4228-97C7-AFC25E0B28AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iidx-dbir-dotnet-blazor.Client", "Client\iidx-dbir-dotnet-blazor.Client.csproj", "{1BF95467-6F89-43A0-A97B-16A4A4FFE90A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99DF868B-844D-4228-97C7-AFC25E0B28AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DF868B-844D-4228-97C7-AFC25E0B28AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DF868B-844D-4228-97C7-AFC25E0B28AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DF868B-844D-4228-97C7-AFC25E0B28AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF95467-6F89-43A0-A97B-16A4A4FFE90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF95467-6F89-43A0-A97B-16A4A4FFE90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF95467-6F89-43A0-A97B-16A4A4FFE90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF95467-6F89-43A0-A97B-16A4A4FFE90A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623C1C69-AD80-4445-98A3-27AC0B6F86CE}
+	EndGlobalSection
+EndGlobal
