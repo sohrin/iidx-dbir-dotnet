@@ -9,6 +9,9 @@ using PuppeteerSharp;
 using AngleSharp.Html.Parser;
 using AngleSharp.Html.Dom;
 using NLog;
+using Dbir.Dto;
+using Dbir.Utils;
+using Dbir.Repository;
 
 namespace dbir
 {
@@ -40,10 +43,10 @@ namespace dbir
 
             // 対象の曲一覧ページのURL一覧
             var listPageUrlList = new List<string>();
-            listPageUrlList.Add("https://textage.cc/score/index.html?s911B000");
+//            listPageUrlList.Add("https://textage.cc/score/index.html?s911B000");
             listPageUrlList.Add("https://textage.cc/score/index.html?sA11B000");
-            listPageUrlList.Add("https://textage.cc/score/index.html?sB11B000");
-            listPageUrlList.Add("https://textage.cc/score/index.html?sC11B000");
+//            listPageUrlList.Add("https://textage.cc/score/index.html?sB11B000");
+//            listPageUrlList.Add("https://textage.cc/score/index.html?sC11B000");
 
             // スクレイピング処理する際の1曲毎の待ち時間ミリ秒
             const int SCRAPING_SLEEP_TIME_MS = 10000;
@@ -296,7 +299,7 @@ namespace dbir
             var headerNodeTextArr = headerNodeText.Split(":::::");
             logger.Debug(headerNodeText);
 
-            musicMst.Name = headerNodeTextArr[2];
+            musicMst.Name = headerNodeTextArr[2].Trim();
 
             var playStyleChartsTypeArr = headerNodeTextArr[1].Split(" ");
             musicMst.PlayStyle = playStyleChartsTypeArr[0];
@@ -347,9 +350,9 @@ namespace dbir
 
             // LEVEL ONEのジャンル「Drumstep / DnB」対応
             headerNodeTextArr[0] = headerNodeTextArr[0].Replace("Drumstep/DnB", "Drumstep / DnB");
-            musicMst.Genre = headerNodeTextArr[0];
+            musicMst.Genre = headerNodeTextArr[0].Trim();
 
-            musicMst.Composer = headerNodeTextArr[3];
+            musicMst.Composer = headerNodeTextArr[3].Trim();
 
             var bpmArr = headerNodeTextArr[4].Split("～");
             if (bpmArr.Length == 1)

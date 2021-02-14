@@ -5,4 +5,21 @@
     <RootNamespace>iidx_dbir_dotnet_lib</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="Jiifureit.Dapper.OutsideSql" Version="0.7.1" />
+    <PackageReference Include="NLog" Version="4.7.7" />
+    <PackageReference Include="NLog.Config" Version="4.7.7" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="src\Dbir\Repository\MusicMstRepository_InsertMusicMst.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\Dbir\Repository\MusicMstRepository_SelectMusicMstByPK.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

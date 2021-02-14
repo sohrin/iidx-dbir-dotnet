@@ -1,0 +1,48 @@
+﻿@page "/musiclist"
+@using Dbir.Dto;
+@inject HttpClient Http
+
+<h1>Music List</h1>
+
+<p>サイト名をクリックするとDBRとDBHRが切り替わります。</p>
+
+@*
+	<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+*@
+
+@if (musicMstResultList == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>曲名</th>
+				<th>譜面タイプ</th>
+				<th>モード</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var musicMstResult in musicMstResultList)
+			{
+				<tr>
+					<td>@musicMstResult.Name</td>
+					<td>@musicMstResult.ChartsType</td>
+					<td>@musicMstResult.Mode</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private List<MusicMstResult> musicMstResultList;
+
+	protected override async Task OnInitializedAsync()
+	{
+		musicMstResultList = await Http.GetFromJsonAsync<List<MusicMstResult>>("MusicResult");
+	}
+
+}

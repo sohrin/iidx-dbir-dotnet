@@ -1,9 +1,9 @@
 ﻿using System;
 using NLog;
 
-namespace dbir
+namespace Dbir.Utils
 {
-    class ExceptionUtils
+    public class ExceptionUtils
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 

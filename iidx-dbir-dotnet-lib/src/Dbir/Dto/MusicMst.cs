@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dbir
+namespace Dbir.Dto
 {
     /// <summary>
     /// 曲マスタ
@@ -46,5 +46,11 @@ namespace dbir
 
         /// <summary>バックスピンスクラッチ数（TextageのBSSに該当。ノーツ数と異なり、開始・終了のペアの数）</summary>
         public int BackSpinScratchNum { get; set; }
+
+        /// <summary>登録日時</summary>
+        public DateTime CreateDate { get; set; }
+
+        /// <summary>更新日時</summary>
+        public DateTime UpdateDate { get; set; }
     }
 }

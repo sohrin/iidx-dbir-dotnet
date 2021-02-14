@@ -8,8 +8,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dbir.Dto;
+using Dbir.Utils;
 
-namespace dbir
+namespace Dbir.Repository
 {
     public interface IRepository<T>
     {
@@ -26,7 +28,7 @@ namespace dbir
 
     }
 
-    class MusicMstRepository : IRepository<MusicMst>
+    public class MusicMstRepository : IRepository<MusicMst>
     {
         private string _connectionString;
 
@@ -51,7 +53,7 @@ namespace dbir
                 db.Open();
                 try
                 {
-                    var path = "SelectMusicMstByPK.sql";
+                    var path = "src\\Dbir\\Repository\\MusicMstRepository_SelectMusicMstByPK.sql";
                     var param = new DynamicParameters();
                     param.Add("Name",
                         name);
@@ -82,7 +84,7 @@ namespace dbir
                 {
                     try
                     {
-                        var path = "InsertMusicMst.sql";
+                        var path = "src\\Dbir\\Repository\\MusicMstRepository_InsertMusicMst.sql";
                         var param = new DynamicParameters();
                         param.Add("Name",
                             item.Name);
@@ -108,6 +110,14 @@ namespace dbir
                             item.ChargeNoteNum);
                         param.Add("BackSpinScratchNum",
                             item.BackSpinScratchNum);
+
+                        // TODO: エラーになる（現在はSQL側でCURRENT_TIMESTAMP固定にしている）。
+                        //param.Add("CreateDate",
+                        //    new DateTime());
+
+                        // TODO: https://w.atwiki.jp/ohden/pages/648.html の通りやってもエラーになる（現在はSQL側でnull固定にしている）。
+                        //param.Add("UpdateDate",
+                        //    (DateTime?) null);
                         db.QueryOutsideSql(path, param, tran);
                         tran.Commit();
                     }

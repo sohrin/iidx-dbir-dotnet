@@ -17,6 +17,7 @@ namespace iidx_dbir_dotnet_blazor.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            // MEMO: Clientをホストしない場合は変更の必要がありそう。
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             await builder.Build().RunAsync();

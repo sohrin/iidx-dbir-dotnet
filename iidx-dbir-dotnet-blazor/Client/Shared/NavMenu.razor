@@ -1,37 +1,53 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">iidx-dbir-dotnet-blazor</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+	<a class="navbar-brand" href="" @onclick="ChangeMode" @onclick:preventDefault>IIDX DBIR [mode: @currentMode]</a>
+	<p>Current count: </p>
+	<button class="navbar-toggler" @onclick="ToggleNavMenu">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
+	<ul class="nav flex-column">
+		<li class="nav-item px-3">
+			<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+				<span class="oi oi-home" aria-hidden="true"></span> Home
+			</NavLink>
+		</li>
+		<li class="nav-item px-3">
+			<NavLink class="nav-link" href="musiclist">
+				<span class="oi oi-list-rich" aria-hidden="true"></span> Music List
+			</NavLink>
+		</li>
+		<li class="nav-item px-3">
+			<NavLink class="nav-link" href="about">
+				<span class="oi oi-info" aria-hidden="true"></span> About This
+			</NavLink>
+		</li>
+	</ul>
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
+	private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+	private void ToggleNavMenu()
+	{
+		collapseNavMenu = !collapseNavMenu;
+	}
+
+	// TODO: マスタから取得
+	private static readonly List<string> modeList = new List<string>() { "DBR", "DBHR" };
+
+	// TODO: ログインユーザ情報として保持
+	private static int modeListIdx = 0;
+
+	private static string currentMode = modeList[modeListIdx];
+
+	private static void ChangeMode()
+	{
+		modeListIdx++;
+		modeListIdx %= modeList.Count();
+		currentMode = modeList[modeListIdx];
+	}
 }

@@ -43,16 +43,16 @@ namespace iidx_dbir_dotnet_blazor.Server
             }
 
             app.UseHttpsRedirection();
-            app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles();
+            app.UseBlazorFrameworkFiles();                      // MEMO: Clientをホストしない場合はコメントアウトする
+            app.UseStaticFiles();                               // MEMO: Clientをホストしない場合はコメントアウトする
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapRazorPages();                      // MEMO: Clientをホストしない場合はコメントアウトする
                 endpoints.MapControllers();
-                endpoints.MapFallbackToFile("index.html");
+                endpoints.MapFallbackToFile("index.html");      // MEMO: Clientをホストしない場合はコメントアウトする
             });
         }
     }
