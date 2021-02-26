@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
@@ -47,6 +48,12 @@ namespace iidx_dbir_dotnet_blazor.Server
             app.UseStaticFiles();                               // MEMO: Clientをホストしない場合はコメントアウトする
 
             app.UseRouting();
+
+            // for Reverse Proxy
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             app.UseEndpoints(endpoints =>
             {
