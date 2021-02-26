@@ -1,0 +1,28 @@
+﻿@page "/login"
+@inherits Dbir.Auth.LoginViewModel
+@*
+	<LoadingScreen IsLoading="@IsLoading" />
+*@
+<div class="mat-layout-grid">
+	<div class="mat-layout-grid-inner">
+		<div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-layout-grid-align-center">
+			<h3>Login</h3>
+		</div>
+		<EditForm Model="@LoginData" OnValidSubmit="SubmitAsync" class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+			<DataAnnotationsValidator />
+			<ValidationSummary />
+			<div class="mat-layout-grid-inner">
+				<div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+					UserID: <input type="text" @bind-value="@LoginData.UserID"></input>
+				</div>
+				<div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+					Password: <input type="password" @bind-value="@LoginData.Password"></input>
+				</div>
+				<div class="mat-layout-grid-cell mat-layout-grid-cell-span-12 mat-layout-grid-align-right">
+					<input type="submit" />
+				</div>
+			</div>
+			<p style="color:red;">@ErrorMessage</p>
+		</EditForm>
+	</div>
+</div>

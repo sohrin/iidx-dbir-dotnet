@@ -5,3 +5,10 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<AuthorizeView>
+	<Authorized>
+		<h1>Hello, @context.User.Identity.Name!</h1>
+		<p>You can only see this content if you're authenticated.</p>
+	</Authorized>
+</AuthorizeView>
