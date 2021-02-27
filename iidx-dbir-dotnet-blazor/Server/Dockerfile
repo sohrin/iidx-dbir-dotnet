@@ -20,11 +20,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENV ASPNETCORE_URLS http://*:5000
-
-ENV DOCKERIZE_VERSION v0.6.1
-RUN apt-get update && apt-get install -y wget \
- && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
- && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
- && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-
 ENTRYPOINT ["dotnet", "iidx-dbir-dotnet-blazor.Server.dll"]
