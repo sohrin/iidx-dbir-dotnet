@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     build:
-      context: ./docker/nginx
+      context: ./docker/Nginx
     environment:
       BACKEND_HOST: "app:5000"  
     ports: 
