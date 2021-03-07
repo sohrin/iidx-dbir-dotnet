@@ -3,36 +3,45 @@ services:
   web:
     build:
       context: ./docker/Nginx
+    image: iidx-dbir-dotnet_web
     environment:
       BACKEND_HOST: "app:5000"  
     ports: 
       - 80:80
     depends_on:
       - app
+    labels: 
+      kompose.image-pull-policy: IfNotPresent
   app:
     build:
       context: .
       dockerfile: ./iidx-dbir-dotnet-blazor/Server/Dockerfile
+    image: iidx-dbir-dotnet_app
     environment:
-      ConnectionStrings__DefaultConnection: "Data Source=mssql;Initial Catalog=dbir_db;User ID=sa;Password=MssqlPass123;Trusted_Connection = true;Integrated Security = false;"
+      ConnectionStrings__DefaultConnection: 'Data Source=db;Initial Catalog=dbir_db;User ID=sa;Password=MssqlPass123;Trusted_Connection = true;Integrated Security = false;'
     expose:
       - 5000
     depends_on:
-      - mssql
-  mssql:
+      - db
+    labels: 
+      kompose.image-pull-policy: IfNotPresent
+  db:
     build: ./docker/SQLServer
+    image: iidx-dbir-dotnet_db
     environment:
       SA_PASSWORD: "MssqlPass123"
-      ACCEPT_EULA: "Y"
+      ACCEPT_EULA: 'Y'
       MSSQL_AGENT_ENABLED: "true"
       TZ: Asia/Tokyo 
     ports:
       - "1433:1433"
-    container_name: mssql
-    hostname: mssql
+    container_name: db
+    hostname: db
     volumes:
       - ms-sqlserver-linux-sample-data:/var/opt/mssql
       - ./.dockerVolume/mssql_backup:/backup
+    labels: 
+      kompose.image-pull-policy: IfNotPresent
 volumes:
   ms-sqlserver-linux-sample-data:
     driver: local

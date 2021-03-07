@@ -22,6 +22,8 @@ namespace iidx_dbir_dotnet_blazor.Server.Controllers
         [HttpGet]
         public IEnumerable<MusicMstResult> Get()
         {
+            _logger.LogInformation("MusicResultController#Get() BEGIN.");
+
             // TODO: SQLで取得する
             var musicMstResultList = new List<MusicMstResult>();
             MusicMstResult musicMstResult;
@@ -39,6 +41,8 @@ namespace iidx_dbir_dotnet_blazor.Server.Controllers
             musicMstResult.ChartsType = "ANOTHER";
             musicMstResult.Mode = "DBR";
             musicMstResultList.Add(musicMstResult);
+
+            _logger.LogInformation("MusicResultController#Get() END.");
 
             return musicMstResultList.ToArray();
             //var rng = new Random();
